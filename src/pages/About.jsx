@@ -53,6 +53,7 @@ const About = () => {
               <img
                 src="/profile.jpg"
                 alt="Bijoy Khiang"
+                loading="lazy"
                 className="w-full h-auto max-h-[30rem] object-cover"
               />
             </div>

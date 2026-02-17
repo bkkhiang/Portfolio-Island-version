@@ -192,6 +192,7 @@ const ThreeDScene = () => {
               <div className="flex-1 relative bg-gray-100">
                 <iframe
                   src="/bijoy-cv.pdf"
+                  loading="lazy"
                   className="absolute top-0 left-0 w-full h-full border-none"
                   title="CV Preview"
                   style={{ minHeight: '100%' }}

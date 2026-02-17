@@ -21,7 +21,10 @@
       "Bash(lsof -i :3003)",
       "Bash(lsof -i :3007)",
       "Bash(ls -la public/*.jpg public/*.png)",
-      "Bash(ls -lh dist/assets/*.js)"
+      "Bash(ls -lh dist/assets/*.js)",
+      "Bash(npx source-map-explorer dist/assets/index-9204b185.js)",
+      "Bash(du -sh dist/* dist/models/* dist/*.pdf)",
+      "Bash(npm uninstall @types/react @types/react-dom)"
     ]
   }
 }
