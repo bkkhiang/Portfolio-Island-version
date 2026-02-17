@@ -106,26 +106,26 @@ const ThreeDScene = () => {
 
           {/* CTA Buttons */}
           <animated.div
-            className="flex flex-wrap gap-4 mt-8"
+            className="flex flex-wrap gap-3 mt-6 md:mt-8 justify-center md:justify-start"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1 }}
           >
             <button
               onClick={() => setShowCvModal(true)}
-              className={`group relative px-8 py-4 bg-gradient-to-r ${pageColors.gradient} text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300`}
+              className={`group relative px-5 py-2 md:px-8 md:py-4 bg-gradient-to-r ${pageColors.gradient} text-sm md:text-base text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300`}
             >
               <span className="flex items-center gap-2">
-                <span>👁️</span> Preview CV
+                <span className="hidden sm:inline">👁️</span> <span>Preview CV</span>
               </span>
             </button>
             <a
               href="/bijoy-cv.pdf"
               download="Bijoy_Khiang_CV.pdf"
-              className={`group relative px-8 py-4 ${currentTheme.cardBg} backdrop-blur-xl font-bold rounded-full shadow-lg border ${currentTheme.cardBorder} hover:scale-105 transition-all duration-300 ${currentTheme.text}`}
+              className={`group relative px-5 py-2 md:px-8 md:py-4 ${currentTheme.cardBg} backdrop-blur-xl text-sm md:text-base font-bold rounded-full shadow-lg border ${currentTheme.cardBorder} hover:scale-105 transition-all duration-300 ${currentTheme.text}`}
             >
               <span className="flex items-center gap-2">
-                <span>📥</span> Download CV
+                <span className="hidden sm:inline">📥</span> <span>Download CV</span>
               </span>
             </a>
           </animated.div>
