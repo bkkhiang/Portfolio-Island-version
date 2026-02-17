@@ -8,6 +8,9 @@ const ThemeSwitcher = () => {
     { value: THEMES.LIGHT, label: '☀️ Light', icon: 'sun' },
     { value: THEMES.DARK, label: '🌙 Dark', icon: 'moon' },
     { value: THEMES.PROFESSIONAL, label: '💼 Professional', icon: 'briefcase' },
+    { value: THEMES.OCEAN, label: '🌊 Ocean', icon: 'ocean' },
+    { value: THEMES.SUNSET, label: '🌅 Sunset', icon: 'sunset' },
+    { value: THEMES.FOREST, label: '🌲 Forest', icon: 'forest' },
   ];
 
   return (
@@ -20,6 +23,9 @@ const ThemeSwitcher = () => {
           {theme === THEMES.LIGHT && '☀️'}
           {theme === THEMES.DARK && '🌙'}
           {theme === THEMES.PROFESSIONAL && '💼'}
+          {theme === THEMES.OCEAN && '🌊'}
+          {theme === THEMES.SUNSET && '🌅'}
+          {theme === THEMES.FOREST && '🌲'}
         </span>
         <span className="text-sm font-medium hidden sm:inline">
           {themes.find(t => t.value === theme)?.label.split(' ')[1]}
@@ -30,7 +36,7 @@ const ThemeSwitcher = () => {
       </button>
 
       {/* Dropdown */}
-      <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+      <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
         {themes.map((t) => (
           <button
             key={t.value}
@@ -43,6 +49,9 @@ const ThemeSwitcher = () => {
               {t.icon === 'sun' && '☀️'}
               {t.icon === 'moon' && '🌙'}
               {t.icon === 'briefcase' && '💼'}
+              {t.icon === 'ocean' && '🌊'}
+              {t.icon === 'sunset' && '🌅'}
+              {t.icon === 'forest' && '🌲'}
             </span>
             <span className="text-sm font-medium">{t.label}</span>
             {theme === t.value && (

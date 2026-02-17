@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { animated, useSpring } from '@react-spring/web';
 import { useTheme } from '../contexts/ThemeContext.jsx';
+import VideoBackground from '../components/VideoBackground.jsx';
 
 // Sample projects data - you can customize this
 const projectsData = [
@@ -81,7 +82,7 @@ const projectsData = [
 const categories = ['All', 'Web', '3D', 'Data', 'AI'];
 
 const Projects = () => {
-  const { currentTheme } = useTheme();
+  const { currentTheme, pageColors } = useTheme();
   const [filter, setFilter] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
 
@@ -97,7 +98,7 @@ const Projects = () => {
   });
 
   return (
-    <div className={`min-h-screen ${currentTheme.background}`}>
+    <VideoBackground>
       {/* Hero Section */}
       <section className={`pt-32 pb-16 px-4 md:px-8 ${currentTheme.heroBg}`}>
         <div className="max-w-6xl mx-auto text-center">
@@ -260,7 +261,7 @@ const Projects = () => {
           </animated.div>
         </animated.div>
       )}
-    </div>
+    </VideoBackground>
   );
 };
 

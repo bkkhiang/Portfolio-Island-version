@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { animated, useSpring } from '@react-spring/web';
 import { useTheme } from '../contexts/ThemeContext.jsx';
+import VideoBackground from '../components/VideoBackground.jsx';
 
 const Contact = () => {
-  const { currentTheme } = useTheme();
+  const { currentTheme, pageColors } = useTheme();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -54,12 +55,12 @@ const Contact = () => {
   });
 
   return (
-    <div className={`min-h-screen ${currentTheme.background}`}>
+    <VideoBackground>
       {/* Hero Section */}
       <section className={`pt-32 pb-16 px-4 md:px-8 ${currentTheme.heroBg}`}>
-        <div className="max-w-6xl mx-auto text-center">
-          <animated.h1
-            className={`text-5xl md:text-7xl font-bold bg-gradient-to-r ${currentTheme.accentGradient} bg-clip-text text-transparent mb-6 ${currentTheme.headingFont}`}
+          <div className="max-w-6xl mx-auto text-center">
+            <animated.h1
+              className={`text-5xl md:text-7xl font-bold bg-gradient-to-r ${pageColors.gradient} bg-clip-text text-transparent mb-6 ${currentTheme.headingFont}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -233,7 +234,7 @@ const Contact = () => {
           </a>
         </div>
       </section>
-    </div>
+    </VideoBackground>
   );
 };
 

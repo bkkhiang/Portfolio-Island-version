@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { animated } from '@react-spring/web';
 import { useTheme } from '../contexts/ThemeContext.jsx';
-import ParticleBackground from './ParticleBackground.jsx';
 
 const ThreeDScene = () => {
-  const { currentTheme, theme } = useTheme();
+  const { currentTheme, theme, pageColors } = useTheme();
   const [autoRotate, setAutoRotate] = useState(true);
   const [showCvModal, setShowCvModal] = useState(false);
   const [modelLoaded, setModelLoaded] = useState(true);
@@ -15,8 +14,20 @@ const ThreeDScene = () => {
 
   return (
     <div className={`relative min-h-screen ${currentTheme.background} overflow-hidden`}>
-      {/* Rich creamy white background */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 dark:from-stone-900 dark:via-stone-800 dark:to-stone-900"></div>
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        style={{ opacity: 1 }}
+      >
+        <source src="/air.mp4" type="video/mp4" />
+      </video>
+
+      {/* Gradient overlay for better contrast */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-r from-amber-900/40 via-transparent to-orange-900/40 dark:from-stone-900/70 dark:via-transparent dark:to-stone-900/70 pointer-events-none"></div>
 
       {/* Loading Spinner */}
       {!modelLoaded && (
@@ -43,104 +54,80 @@ const ThreeDScene = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            pointerEvents: 'auto'
+            pointerEvents: 'auto',
+            transform: 'translateX(15%)'
           }}
           onLoad={() => setModelLoaded(true)}
         />
       </div>
 
-      {/* Navigation from App.jsx */}
-      {/* Note: App.jsx provides the main navigation bar */}
-
-      {/* Hero Text Overlay - centered on top */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-30">
-        <div className="text-center max-w-4xl px-8 pointer-events-auto">
-          <animated.h1
-            className={`text-5xl md:text-7xl font-bold bg-gradient-to-r ${currentTheme.accentGradient} bg-clip-text text-transparent mb-6 drop-shadow-lg ${currentTheme.headingFont}`}
-            style={{
-              opacity: 0,
-              y: -50,
-              config: { duration: 1000 }
-            }}
+      {/* Hero Text Overlay - Left side of model, above the 3D */}
+      <div className="absolute inset-0 flex items-center justify-start z-30 pointer-events-none pt-24 md:pt-28">
+        <div className="pl-4 md:pl-16 lg:pl-24 pointer-events-auto max-w-2xl">
+          {/* Main Heading */}
+          <animated.div
+            className="mb-4"
+            initial={{ opacity: 0, x: -80, scale: 0.8 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2, tension: 120, friction: 20 }}
           >
-            BIJOY
-            <span className="block text-6xl md:text-8xl">KHIANG</span>
-          </animated.h1>
+            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold ${currentTheme.headingFont}`}>
+              <span className={`bg-gradient-to-r ${pageColors.gradient} bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] animate-pulse`}>
+                Hello! My Name Is Bijoy
+              </span>
+            </h1>
+          </animated.div>
 
-          <animated.p
-            className={`text-lg md:text-2xl ${currentTheme.textMuted} mb-8 max-w-2xl mx-auto drop-shadow-md`}
-            style={{
-              opacity: 0,
-              y: -30,
-              config: { duration: 1200, delay: 200 }
-            }}
+          {/* Subtitle */}
+          <animated.div
+            className="mb-3"
+            initial={{ opacity: 0, x: -80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.5, tension: 120, friction: 20 }}
           >
-            Technical Officer specializing in data automation and conservation tech
-          </animated.p>
+            <h2 className={`text-2xl md:text-3xl lg:text-4xl font-semibold ${currentTheme.text} drop-shadow-lg`}>
+              I am a <span className={`bg-gradient-to-r ${pageColors.gradient} bg-clip-text text-transparent font-bold`}>Senior Research Assistant</span>
+            </h2>
+          </animated.div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <animated.button
-              className={`px-8 py-4 ${currentTheme.buttonPrimary} font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300`}
-              style={{
-                opacity: 0,
-                y: -20,
-                config: { duration: 1400, delay: 400 }
-              }}
-            >
-              View About
-            </animated.button>
-            <animated.button
+          {/* Tagline */}
+          <animated.div
+            className="mb-6"
+            initial={{ opacity: 0, x: -80 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.8, tension: 120, friction: 20 }}
+          >
+            <p className={`text-xl md:text-2xl lg:text-3xl font-medium ${currentTheme.text} drop-shadow-lg`}>
+              Currently adapting <span className={`bg-gradient-to-r ${pageColors.gradient} bg-clip-text text-transparent font-bold`}>AI Automation</span> & <span className={`bg-gradient-to-r ${pageColors.gradient} bg-clip-text text-transparent font-bold`}>Web Development</span>
+            </p>
+          </animated.div>
+
+          {/* CTA Buttons */}
+          <animated.div
+            className="flex flex-wrap gap-4 mt-8"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1 }}
+          >
+            <button
               onClick={() => setShowCvModal(true)}
-              className={`px-8 py-4 ${currentTheme.buttonSecondary} font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300`}
-              style={{
-                opacity: 0,
-                y: -20,
-                config: { duration: 1400, delay: 600 }
-              }}
+              className={`group relative px-8 py-4 bg-gradient-to-r ${pageColors.gradient} text-white font-bold rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300`}
             >
-              View CV
-            </animated.button>
-          </div>
+              <span className="flex items-center gap-2">
+                <span>👁️</span> Preview CV
+              </span>
+            </button>
+            <a
+              href="/bijoy-cv.pdf"
+              download="Bijoy_Khiang_CV.pdf"
+              className={`group relative px-8 py-4 ${currentTheme.cardBg} backdrop-blur-xl font-bold rounded-full shadow-lg border ${currentTheme.cardBorder} hover:scale-105 transition-all duration-300 ${currentTheme.text}`}
+            >
+              <span className="flex items-center gap-2">
+                <span>📥</span> Download CV
+              </span>
+            </a>
+          </animated.div>
         </div>
-      </div>
-
-      {/* Auto-Rotate Toggle - Top Right */}
-      <button
-        onClick={toggleAutoRotate}
-        className={`absolute top-24 right-6 md:right-8 z-40 px-4 py-2 ${currentTheme.cardBg} backdrop-blur-sm rounded-lg shadow-md ${currentTheme.cardBorder} hover:opacity-90 transition-all`}
-      >
-        <div className="flex items-center gap-2 text-sm font-medium">
-          <svg
-            className={`w-5 h-5 ${autoRotate ? currentTheme.accentText : 'text-gray-400'}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
-            />
-          </svg>
-          <span className={currentTheme.text}>Auto-Rotate: {autoRotate ? 'ON' : 'OFF'}</span>
-        </div>
-      </button>
-
-      {/* Action Buttons - Bottom Right */}
-      <div className="absolute bottom-24 right-6 md:right-8 z-40 flex flex-row gap-4">
-        <a
-          href="/projects"
-          className={`inline-block px-8 py-4 ${currentTheme.buttonPrimary} font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300`}
-        >
-          View Projects
-        </a>
-        <button
-          onClick={() => setShowCvModal(true)}
-          className={`inline-block px-8 py-4 bg-cyan-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:bg-cyan-700 transform hover:scale-105 transition-all duration-300`}
-        >
-          View CV
-        </button>
       </div>
 
       {/* CV Preview Modal */}

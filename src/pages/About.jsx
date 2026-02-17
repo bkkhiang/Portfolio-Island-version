@@ -2,17 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { animated } from '@react-spring/web';
 import { useTheme } from '../contexts/ThemeContext.jsx';
+import VideoBackground from '../components/VideoBackground.jsx';
 
 const About = () => {
-  const { currentTheme } = useTheme();
+  const { currentTheme, pageColors } = useTheme();
 
   return (
-    <div className={`min-h-screen ${currentTheme.background}`}>
+    <VideoBackground>
       {/* Hero Section */}
       <section className={`pt-32 pb-16 px-4 md:px-8 ${currentTheme.heroBg}`}>
         <div className="max-w-6xl mx-auto text-center">
           <animated.h1
-            className={`text-5xl md:text-7xl font-bold bg-gradient-to-r ${currentTheme.accentGradient} bg-clip-text text-transparent mb-6 ${currentTheme.headingFont}`}
+            className={`text-5xl md:text-7xl font-bold bg-gradient-to-r ${pageColors.gradient} bg-clip-text text-transparent mb-6 ${currentTheme.headingFont}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -25,7 +26,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Technical Officer specializing in data automation, AI-assisted workflows, and digital survey systems. Using technology to drive conservation and community development initiatives.
+            Senior Research Assistant specializing in data automation, AI-assisted workflows, and digital survey systems. Using technology to drive community development initiatives.
           </animated.p>
         </div>
       </section>
@@ -37,7 +38,7 @@ const About = () => {
             <div>
               <h2 className={`text-4xl font-bold ${currentTheme.text} mb-6 ${currentTheme.headingFont}`}>Who I Am</h2>
               <p className={`text-lg ${currentTheme.text} mb-4 leading-relaxed`}>
-                I'm a Technical Officer with a background in Anthropology from Jahangirnagar University. My career focuses on leveraging technology for conservation and development—using data automation, AI-assisted workflows, and digital survey tools to support biodiversity protection and community livelihoods.
+                I'm a Senior Research Assistant with a background in Anthropology from Jahangirnagar University. My career focuses on leveraging technology for development—using data automation, AI-assisted workflows, and digital survey tools to support community livelihoods.
               </p>
               <p className={`text-lg ${currentTheme.text} mb-6 leading-relaxed`}>
                 Currently serving as a focal point for the Data & Technical Team at ARCED Foundation, I specialize in building automated survey systems, data quality assurance, and AI-assisted workflows. I'm also exploring web development to create immersive digital experiences that communicate complex ideas effectively.
@@ -222,7 +223,7 @@ const About = () => {
           </Link>
         </div>
       </section>
-    </div>
+    </VideoBackground>
   );
 };
 
