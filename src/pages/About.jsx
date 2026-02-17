@@ -40,7 +40,7 @@ const About = () => {
                 I'm a Technical Officer with a background in Anthropology from Jahangirnagar University. My career focuses on leveraging technology for conservation and development—using data automation, AI-assisted workflows, and digital survey tools to support biodiversity protection and community livelihoods.
               </p>
               <p className={`text-lg ${currentTheme.text} mb-6 leading-relaxed`}>
-                Currently serving as a focal point for the Data & Technical Team, I specialize in building automated survey systems, data quality assurance, and AI-driven tools like xlsform-ai. I'm also exploring web development to create immersive digital experiences that communicate complex ideas effectively.
+                Currently serving as a focal point for the Data & Technical Team at ARCED Foundation, I specialize in building automated survey systems, data quality assurance, and AI-assisted workflows. I'm also exploring web development to create immersive digital experiences that communicate complex ideas effectively.
               </p>
               <Link
                 to="/contact"
@@ -53,7 +53,7 @@ const About = () => {
               <img
                 src="/profile.jpg"
                 alt="Bijoy Khiang"
-                className={`w-full h-auto max-h-[30rem] object-cover ${currentTheme.background}`}
+                className="w-full h-auto max-h-[30rem] object-cover"
               />
             </div>
           </div>
@@ -71,9 +71,9 @@ const About = () => {
               { name: 'SurveyCTO & ODK', level: 92 },
               { name: 'Stata', level: 88 },
               { name: 'Power BI', level: 85 },
-              { name: 'Form Design (XLSForm)', level: 90 },
               { name: 'Data Quality Assurance', level: 92 },
-              { name: 'Project Documentation', level: 88 }
+              { name: 'Project Documentation', level: 88 },
+              { name: 'CATI Systems', level: 90 }
             ].map((skill, idx) => (
               <div key={idx} className={`${currentTheme.cardBg} p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow ${currentTheme.cardBorder} border`}>
                 <h3 className={`font-semibold ${currentTheme.text} mb-3`}>{skill.name}</h3>
@@ -98,25 +98,25 @@ const About = () => {
             {[
               {
                 role: 'Research Assistant 3 (Technical Focal Point)',
-                company: 'Arannayk Foundation',
+                company: 'ARCED Foundation',
                 period: 'Jan 2025 - Present',
-                desc: 'Serve as focal point for Data & Technical Team, develop AI-driven xlsform-ai system, implement automated CATI surveys, and oversee data quality assurance for multiple projects.'
+                desc: 'Serve as focal point for Data & Technical Team, lead development of AI-assisted survey tools, implement automated CATI surveys, and oversee data quality assurance for multiple projects.'
               },
               {
                 role: 'Research Assistant 1',
-                company: 'Arannayk Foundation',
+                company: 'ARCED Foundation',
                 period: 'Oct 2024 - Dec 2025',
                 desc: 'Facilitated Scrum cycles, improved ODK/Stata modules, delivered Stata training, led survey implementations, and mentored junior staff in data quality processes.'
               },
               {
                 role: 'Trainee Research Assistant',
-                company: 'Arannayk Foundation',
+                company: 'ARCED Foundation',
                 period: 'Oct 2023 - Sep 2024',
                 desc: 'Designed CATI survey forms, automated incentive tracking workflows, led referral surveys, and consolidated large datasets for analysis.'
               },
               {
                 role: 'Intern',
-                company: 'Arannayk Foundation',
+                company: 'ARCED Foundation',
                 period: 'Jul 2023 - Sep 2023',
                 desc: 'Supported mystery shopping project, translated survey instruments, refined questionnaires, managed large Excel datasets, and rapidly developed technical proficiency.'
               }
@@ -145,8 +145,8 @@ const About = () => {
           <div className="flex flex-wrap justify-center gap-4">
             {[
               'AI Agents', 'GPT-4', 'Claude', 'Stata', 'SurveyCTO', 'ODK',
-              'XLSForm', 'Power BI', 'React', 'Tailwind CSS', 'Git',
-              'MS Office Suite', 'Vite', 'Data Automation'
+              'Power BI', 'React', 'Tailwind CSS', 'Git',
+              'MS Office Suite', 'Vite', 'Data Automation', 'CATI'
             ].map((tech, idx) => (
               <span
                 key={idx}
@@ -175,10 +175,10 @@ const About = () => {
                 readTime: '7 min read'
               },
               {
-                title: 'Building xlsform-ai: AI-Powered Form Generation',
-                excerpt: 'A deep dive into creating an AI-driven system that automatically generates ODK survey forms from Word and PDF documents.',
+                title: 'Automating Survey Workflows with AI',
+                excerpt: 'How AI-assisted tools are transforming data collection processes and improving efficiency in field surveys.',
                 date: 'Jan 2025',
-                readTime: '10 min read'
+                readTime: '8 min read'
               },
               {
                 title: 'Implementing CATI Surveys with ODK',
