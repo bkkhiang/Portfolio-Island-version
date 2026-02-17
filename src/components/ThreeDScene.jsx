@@ -14,20 +14,23 @@ const ThreeDScene = () => {
 
   return (
     <div className={`relative min-h-screen ${currentTheme.background} overflow-hidden`}>
-      {/* Video Background */}
+      {/* Creamy Background - Mobile Only */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-amber-100 to-amber-200 dark:from-stone-800 dark:to-stone-900 md:hidden"></div>
+
+      {/* Video Background - Desktop Only */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover z-0 hidden md:block"
         style={{ opacity: 1 }}
       >
         <source src="/air.mp4" type="video/mp4" />
       </video>
 
-      {/* Gradient overlay for better contrast */}
-      <div className="absolute inset-0 z-0 bg-gradient-to-r from-amber-900/40 via-transparent to-orange-900/40 dark:from-stone-900/70 dark:via-transparent dark:to-stone-900/70 pointer-events-none"></div>
+      {/* Gradient overlay for better contrast - Desktop Only */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-r from-amber-900/40 via-transparent to-orange-900/40 dark:from-stone-900/70 dark:via-transparent dark:to-stone-900/70 pointer-events-none hidden md:block"></div>
 
       {/* Loading Spinner */}
       {!modelLoaded && (
@@ -40,7 +43,7 @@ const ThreeDScene = () => {
       )}
 
       {/* Island with Cottage - Fullscreen Main Interactive Layer (z-index: 20) */}
-      <div className="absolute inset-0 z-20" style={{ pointerEvents: 'auto' }}>
+      <div className="absolute inset-0 z-20 flex items-center justify-center md:justify-end" style={{ pointerEvents: 'auto' }}>
         <model-viewer
           src="/models/fantasy-cottage.glb"
           camera-controls
@@ -54,16 +57,15 @@ const ThreeDScene = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            pointerEvents: 'auto',
-            transform: 'translateX(15%)'
+            pointerEvents: 'auto'
           }}
           onLoad={() => setModelLoaded(true)}
         />
       </div>
 
       {/* Hero Text Overlay - Left side of model, above the 3D */}
-      <div className="absolute inset-0 flex items-center justify-start z-30 pointer-events-none pt-24 md:pt-28">
-        <div className="pl-4 md:pl-16 lg:pl-24 pointer-events-auto max-w-2xl">
+      <div className="absolute inset-0 flex flex-col items-center md:items-start justify-start z-30 pointer-events-none pt-24 md:pt-28 pb-12 md:pb-0">
+        <div className="px-4 md:px-16 lg:pl-24 text-center md:text-left pointer-events-auto max-w-2xl">
           {/* Main Heading */}
           <animated.div
             className="mb-4"
