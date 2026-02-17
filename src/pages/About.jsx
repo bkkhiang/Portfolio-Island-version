@@ -12,7 +12,7 @@ const About = () => {
       <section className={`pt-32 pb-16 px-4 md:px-8 ${currentTheme.heroBg}`}>
         <div className="max-w-6xl mx-auto text-center">
           <animated.h1
-            className={`text-5xl md:text-7xl font-bold bg-gradient-to-r ${currentTheme.accentGradient} bg-clip-text text-transparent mb-6`}
+            className={`text-5xl md:text-7xl font-bold bg-gradient-to-r ${currentTheme.accentGradient} bg-clip-text text-transparent mb-6 ${currentTheme.headingFont}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -35,7 +35,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className={`text-4xl font-bold ${currentTheme.text} mb-6`}>Who I Am</h2>
+              <h2 className={`text-4xl font-bold ${currentTheme.text} mb-6 ${currentTheme.headingFont}`}>Who I Am</h2>
               <p className={`text-lg ${currentTheme.text} mb-4 leading-relaxed`}>
                 I'm a Technical Officer with a background in Anthropology from Jahangirnagar University. My career focuses on leveraging technology for conservation and development—using data automation, AI-assisted workflows, and digital survey tools to support biodiversity protection and community livelihoods.
               </p>
@@ -63,7 +63,7 @@ const About = () => {
       {/* Skills Grid */}
       <section className={`py-16 px-4 md:px-8 ${currentTheme.sectionAltBg}`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className={`text-4xl font-bold ${currentTheme.text} text-center mb-12`}>Skills & Expertise</h2>
+          <h2 className={`text-4xl font-bold ${currentTheme.text} text-center mb-12 ${currentTheme.headingFont}`}>Skills & Expertise</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {[
               { name: 'Data Automation', level: 90 },
@@ -93,7 +93,7 @@ const About = () => {
       {/* Experience Timeline */}
       <section className={`py-16 px-4 md:px-8 ${currentTheme.sectionBg}`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className={`text-4xl font-bold ${currentTheme.text} text-center mb-12`}>Experience</h2>
+          <h2 className={`text-4xl font-bold ${currentTheme.text} text-center mb-12 ${currentTheme.headingFont}`}>Experience</h2>
           <div className="space-y-8">
             {[
               {
@@ -141,7 +141,7 @@ const About = () => {
       {/* Tech Stack */}
       <section className={`py-16 px-4 md:px-8 ${currentTheme.sectionBg}`}>
         <div className="max-w-6xl mx-auto">
-          <h2 className={`text-4xl font-bold ${currentTheme.text} text-center mb-12`}>Tech Stack</h2>
+          <h2 className={`text-4xl font-bold ${currentTheme.text} text-center mb-12 ${currentTheme.headingFont}`}>Tech Stack</h2>
           <div className="flex flex-wrap justify-center gap-4">
             {[
               'AI Agents', 'GPT-4', 'Claude', 'Stata', 'SurveyCTO', 'ODK',
@@ -163,7 +163,7 @@ const About = () => {
       <section className={`py-16 px-4 md:px-8 ${currentTheme.sectionBg}`}>
         <div className="max-w-6xl mx-auto">
           <div className="flex justify-between items-center mb-12">
-            <h2 className={`text-4xl font-bold ${currentTheme.text}`}>Latest Blog Posts</h2>
+            <h2 className={`text-4xl font-bold ${currentTheme.text} ${currentTheme.headingFont}`}>Latest Blog Posts</h2>
             <button className={`${currentTheme.accentText} font-semibold hover:underline`}>View All →</button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

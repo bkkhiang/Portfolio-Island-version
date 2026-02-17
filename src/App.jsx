@@ -1,26 +1,31 @@
 import { Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
+import { useState } from 'react';
 import { useTheme } from './contexts/ThemeContext.jsx';
 import ThreeDScene from './components/ThreeDScene';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import ThemeSwitcher from './components/ThemeSwitcher.jsx';
+import MobileMenu from './components/MobileMenu.jsx';
 import './index.css';
 
 function App() {
   const location = useLocation();
   const { currentTheme } = useTheme();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen">
+    <div className={`min-h-screen ${currentTheme.fontClass}`}>
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 pt-6 px-6 transition-all ${currentTheme.navBg}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 pt-4 px-4 md:px-6 transition-all ${currentTheme.navBg}`}>
         <div className="flex items-center justify-between">
-          <div className={`text-3xl font-bold bg-gradient-to-r ${currentTheme.accentGradient} bg-clip-text text-transparent`}>
+          {/* Logo/Brand */}
+          <Link to="/home" className={`text-2xl md:text-3xl font-bold bg-gradient-to-r ${currentTheme.accentGradient} bg-clip-text text-transparent ${currentTheme.headingFont}`}>
             BIJOY KHIANG
-          </div>
+          </Link>
 
-          <div className="flex items-center space-x-3">
+          {/* Desktop Navigation - Hidden on mobile */}
+          <div className="hidden md:flex items-center space-x-3">
             <Link
               to="/home"
               className={`px-4 py-2 rounded-lg transition-all ${
@@ -63,8 +68,26 @@ function App() {
             </Link>
             <ThemeSwitcher />
           </div>
+
+          {/* Mobile Menu Button - Only visible on mobile */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className={`md:hidden p-2 rounded-lg ${currentTheme.cardBg} ${currentTheme.cardBorder} border`}
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {mobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
       </nav>
+
+      {/* Mobile Menu */}
+      <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
 
       {/* Main Content with Routing */}
       <Routes>

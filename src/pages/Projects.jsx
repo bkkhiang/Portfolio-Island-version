@@ -102,7 +102,7 @@ const Projects = () => {
       <section className={`pt-32 pb-16 px-4 md:px-8 ${currentTheme.heroBg}`}>
         <div className="max-w-6xl mx-auto text-center">
           <animated.h1
-            className={`text-5xl md:text-7xl font-bold bg-gradient-to-r ${currentTheme.accentGradient} bg-clip-text text-transparent mb-6`}
+            className={`text-5xl md:text-7xl font-bold bg-gradient-to-r ${currentTheme.accentGradient} bg-clip-text text-transparent mb-6 ${currentTheme.headingFont}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}

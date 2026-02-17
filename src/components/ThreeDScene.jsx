@@ -83,7 +83,7 @@ const ThreeDScene = () => {
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-30">
         <div className="text-center max-w-4xl px-8 pointer-events-auto">
           <animated.h1
-            className={`text-5xl md:text-7xl font-bold bg-gradient-to-r ${currentTheme.accentGradient} bg-clip-text text-transparent mb-6 drop-shadow-lg`}
+            className={`text-5xl md:text-7xl font-bold bg-gradient-to-r ${currentTheme.accentGradient} bg-clip-text text-transparent mb-6 drop-shadow-lg ${currentTheme.headingFont}`}
             style={{
               opacity: 0,
               y: -50,

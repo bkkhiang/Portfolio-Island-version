@@ -16,49 +16,55 @@ const themeConfigs = {
     textMuted: 'text-gray-600',
     cardBg: 'bg-white',
     cardBorder: 'border-gray-200',
-    navBg: 'bg-white/80 backdrop-blur-md border-gray-200',
-    heroBg: 'bg-gradient-to-br from-gray-50 to-gray-100',
+    navBg: 'bg-white/80 backdrop-blur-md border-gray-200 shadow-sm',
+    heroBg: 'bg-gradient-to-br from-sky-50 via-white to-blue-50',
     sectionBg: 'bg-white',
-    sectionAltBg: 'bg-gray-50',
-    buttonPrimary: 'bg-gray-900 text-white hover:bg-gray-800',
-    buttonSecondary: 'bg-white text-gray-900 border border-gray-300 hover:bg-gray-50',
-    accentGradient: 'from-cyan-500 to-purple-600',
-    accentText: 'text-cyan-600',
-    footerBg: 'bg-gray-50',
+    sectionAltBg: 'bg-sky-50/50',
+    buttonPrimary: 'bg-gradient-to-r from-sky-500 to-blue-600 text-white hover:from-sky-600 hover:to-blue-700 shadow-md',
+    buttonSecondary: 'bg-white text-gray-900 border-2 border-sky-200 hover:bg-sky-50',
+    accentGradient: 'from-sky-500 to-blue-600',
+    accentText: 'text-sky-600',
+    footerBg: 'bg-sky-50',
+    fontClass: 'font-sans',
+    headingFont: 'font-serif',
   },
   dark: {
     name: 'Dark',
-    background: 'bg-gray-900',
-    text: 'text-white',
-    textMuted: 'text-gray-300',
-    cardBg: 'bg-gray-800',
-    cardBorder: 'border-gray-700',
-    navBg: 'bg-gray-900/80 backdrop-blur-md border-gray-700',
-    heroBg: 'bg-gradient-to-br from-gray-900 to-gray-800',
-    sectionBg: 'bg-gray-900',
-    sectionAltBg: 'bg-gray-800',
-    buttonPrimary: 'bg-cyan-500 text-white hover:bg-cyan-600',
-    buttonSecondary: 'bg-gray-700 text-white border border-gray-600 hover:bg-gray-600',
-    accentGradient: 'from-cyan-400 to-purple-500',
-    accentText: 'text-cyan-400',
-    footerBg: 'bg-gray-800',
+    background: 'bg-slate-900',
+    text: 'text-gray-100',
+    textMuted: 'text-gray-400',
+    cardBg: 'bg-slate-800',
+    cardBorder: 'border-slate-700',
+    navBg: 'bg-slate-900/90 backdrop-blur-md border-slate-700 shadow-lg',
+    heroBg: 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900',
+    sectionBg: 'bg-slate-900',
+    sectionAltBg: 'bg-slate-800/50',
+    buttonPrimary: 'bg-gradient-to-r from-blue-600 to-amber-500 text-white hover:from-blue-700 hover:to-amber-600 shadow-lg',
+    buttonSecondary: 'bg-slate-700 text-white border border-slate-600 hover:bg-slate-600',
+    accentGradient: 'from-blue-500 to-amber-500',
+    accentText: 'text-amber-400',
+    footerBg: 'bg-slate-950',
+    fontClass: 'font-sans',
+    headingFont: 'font-serif',
   },
   professional: {
     name: 'Professional',
-    background: 'bg-slate-900',
-    text: 'text-gray-100',
-    textMuted: 'text-gray-300',
-    cardBg: 'bg-slate-800',
-    cardBorder: 'border-slate-700',
-    navBg: 'bg-slate-900/90 backdrop-blur-md border-slate-700',
-    heroBg: 'bg-gradient-to-br from-slate-900 to-slate-800',
-    sectionBg: 'bg-slate-900',
-    sectionAltBg: 'bg-slate-800',
-    buttonPrimary: 'bg-blue-600 text-white hover:bg-blue-700',
-    buttonSecondary: 'bg-slate-700 text-white border border-slate-600 hover:bg-slate-600',
-    accentGradient: 'from-blue-500 to-indigo-600',
-    accentText: 'text-blue-400',
-    footerBg: 'bg-slate-800',
+    background: 'bg-gray-50',
+    text: 'text-gray-900',
+    textMuted: 'text-gray-600',
+    cardBg: 'bg-white',
+    cardBorder: 'border-gray-300',
+    navBg: 'bg-white/95 backdrop-blur-md border-b-2 border-emerald-600 shadow-md',
+    heroBg: 'bg-gradient-to-br from-emerald-50 via-teal-50 to-gray-50',
+    sectionBg: 'bg-white',
+    sectionAltBg: 'bg-emerald-50/30',
+    buttonPrimary: 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:from-emerald-700 hover:to-teal-700 shadow-md',
+    buttonSecondary: 'bg-white text-gray-900 border-2 border-emerald-200 hover:bg-emerald-50',
+    accentGradient: 'from-emerald-600 to-teal-600',
+    accentText: 'text-emerald-700',
+    footerBg: 'bg-gray-50',
+    fontClass: 'font-sans',
+    headingFont: 'font-serif',
   }
 };
 
@@ -73,7 +79,7 @@ export const ThemeProvider = ({ children }) => {
 
     // Update document class for Tailwind dark mode
     const root = document.documentElement;
-    root.classList.remove('dark', 'professional');
+    root.classList.remove('dark');
     if (theme === THEMES.DARK) {
       root.classList.add('dark');
     }
@@ -83,7 +89,7 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, currentTheme }}>
-      <div className={currentTheme.background}>
+      <div className={`${currentTheme.fontClass} ${currentTheme.background}`}>
         {children}
       </div>
     </ThemeContext.Provider>
